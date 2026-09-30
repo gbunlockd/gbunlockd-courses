@@ -1,0 +1,26 @@
+{
+  "updated": "30 September 2026",
+  "courses": [
+    {
+      "name": "EXAMPLE — delete this one",
+      "category": "Marketing",
+      "full": 997,
+      "cost": 45,
+      "link": "https://example.com/the-course",
+      "note": "This row is here to show you the format. Delete it once you have added a real course.\n\nBoth link and note are optional — leave them out and the arrow disappears."
+    },
+    {
+      "name": "EXAMPLE — no link, no note",
+      "category": "Trading",
+      "full": 1497,
+      "cost": 60
+    },
+    {
+      "name": "EXAMPLE — note only",
+      "category": "Business",
+      "full": 499,
+      "cost": 30,
+      "note": "42 video lessons and the templates. About 9 GB."
+    }
+  ]
+}
