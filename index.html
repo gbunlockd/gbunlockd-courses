@@ -202,10 +202,6 @@ select{
 }
 .state h2{font-size:20px; font-weight:700; margin:0 0 8px; color:var(--text)}
 .state p{margin:0 auto; max-width:46ch; font-size:14.5px}
-.state code{
-  font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13px;
-  background:var(--panel-2); padding:2px 6px; border-radius:5px; color:var(--blue-hi);
-}
 
 footer{
   border-top:1px solid var(--line); margin-top:24px;
@@ -229,11 +225,11 @@ footer b{color:var(--dim); font-weight:600}
   <header class="top">
     <img class="logo" src="logo.png" alt="GBUnlockd" onerror="this.remove()">
     <h1>Every course<br>we <span>already have</span></h1>
-    <p class="lede">Already bought and ready to send. You pay the <b>Cost</b> price, not the full one.</p>
+    <p class="lede">Already bought and ready to send.</p>
 
     <ul class="stats" id="stats"></ul>
 
-    <p class="how">Want one? <b>Open a group buy.</b></p>
+    <p class="how">Want something you didn't find here? <b>Open a group buy.</b></p>
   </header>
 </div>
 
@@ -487,10 +483,11 @@ footer b{color:var(--dim); font-weight:600}
       }
       render();
     })
-    .catch(function () {
-      showState("The list could not load", "",
-        'Opening this file straight from your computer will not work — it needs a real web address. ' +
-        'On the live site, check <code>courses.json</code> sits beside <code>index.html</code> and that the JSON is valid.');
+    .catch(function (err) {
+      console.warn("courses.json did not load:", err,
+        "\nOpening index.html straight from disk will always fail — it needs a real web address." +
+        "\nOn the live site: check courses.json sits beside index.html and that the JSON is valid.");
+      showState("Back in a moment", "The list is not loading right now. Try again shortly.");
     });
 })();
 </script>
