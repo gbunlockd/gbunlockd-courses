@@ -1,14 +1,12 @@
 {
   "updated": "30 September 2026",
   "courses": [
- {
-  "name": "PinPower",
-  "category": "Organic Traffic",
-  "full": 299,
-  "cost": 45,
-  "link": "https://viralpinpower.com/",
-  "note": ""
-},
-  
+    {
+      "name": "PinPower",
+      "category": "Organic Traffic",
+      "full": 299,
+      "cost": 45,
+      "link": "https://viralpinpower.com/"
+    }
   ]
 }
