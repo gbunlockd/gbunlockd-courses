@@ -70,7 +70,7 @@ h1 span{
 }
 .stats li{
   background:var(--panel); border:1px solid var(--line); border-radius:12px;
-  padding:14px 16px; text-align:left;
+  padding:14px 16px; text-align:center;
 }
 .stats b{
   display:block; font-size:22px; font-weight:800; letter-spacing:-.03em;
@@ -84,25 +84,11 @@ h1 span{
 
 /* ---------- how to buy ---------- */
 .how{
-  margin-top:14px; background:var(--panel); border:1px solid var(--line);
-  border-left:3px solid var(--blue); border-radius:12px; padding:16px 18px;
-  display:flex; gap:18px; align-items:flex-start; flex-wrap:wrap;
+  margin:14px 0 0; text-align:center; font-size:15.5px; color:var(--dim);
+  background:var(--panel); border:1px solid var(--line); border-radius:12px;
+  padding:14px 18px;
 }
-.how h2{
-  font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-  color:var(--blue-hi); margin:0 0 6px;
-}
-.how p{margin:0; color:var(--dim); font-size:14.5px; max-width:62ch}
-.how p b{color:var(--text); font-weight:600}
-.how ol{
-  margin:10px 0 0; padding:0; list-style:none; display:flex; gap:9px; flex-wrap:wrap;
-}
-.how ol li{
-  font-size:13px; color:var(--dim);
-  background:var(--panel-2); border:1px solid var(--line);
-  border-radius:99px; padding:5px 13px;
-}
-.how ol li b{color:var(--blue-hi); font-weight:700; margin-right:5px}
+.how b{color:var(--blue-hi); font-weight:700}
 
 /* ---------- controls ---------- */
 .bar{
@@ -188,7 +174,7 @@ select{
   text-shadow:0 0 26px var(--glow);
 }
 .costlab{
-  font-size:9.5px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+  font-size:11px; font-weight:600; letter-spacing:.01em;
   color:var(--faint); margin-top:1px;
 }
 .chev{
@@ -243,22 +229,11 @@ footer b{color:var(--dim); font-weight:600}
   <header class="top">
     <img class="logo" src="logo.png" alt="GBUnlockd" onerror="this.remove()">
     <h1>Every course<br>we <span>already have</span></h1>
-    <p class="lede">Bought, paid for and ready to send. You pay the <b>COST</b> price — not the full one.</p>
+    <p class="lede">Already bought and ready to send. You pay the <b>Cost</b> price, not the full one.</p>
 
     <ul class="stats" id="stats"></ul>
 
-    <section class="how">
-      <div>
-        <h2>How to get one</h2>
-        <p>Open a ticket and say which course you want. We sort it out with you there — <b>the bot posts the payment details in your ticket and sends them to you privately as well</b>, so you can compare the two. Once your payment is confirmed, the course is delivered straight to your DMs.</p>
-        <ol>
-          <li><b>1</b> Open a ticket</li>
-          <li><b>2</b> Say which course</li>
-          <li><b>3</b> Pay</li>
-          <li><b>4</b> It arrives in your DMs</li>
-        </ol>
-      </div>
-    </section>
+    <p class="how">Want one? <b>Open a group buy.</b></p>
   </header>
 </div>
 
@@ -283,7 +258,7 @@ footer b{color:var(--dim); font-weight:600}
   <ul class="list" id="list"></ul>
   <div class="state" id="state" hidden></div>
   <footer>
-    <p>Prices in USD. <b>COST</b> is what you pay us.</p>
+    <p>Prices in USD.</p>
     <p id="stamp"></p>
   </footer>
 </div>
@@ -418,7 +393,7 @@ footer b{color:var(--dim); font-weight:600}
     var cs = document.createElement("span"); cs.className = "cost";
     cs.textContent = money(c.cost); mon.appendChild(cs);
     var cl = document.createElement("span"); cl.className = "costlab";
-    cl.textContent = "cost"; mon.appendChild(cl);
+    cl.textContent = "Cost"; mon.appendChild(cl);
     head.appendChild(mon);
 
     if (more) {
