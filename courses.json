@@ -1,5 +1,5 @@
 {
-  "updated": "30 September 2026",
+  "updated": "2 October 2026",
   "courses": [
     {
       "name": "PinPower",
@@ -7,6 +7,155 @@
       "full": 299,
       "cost": 70,
       "link": "https://viralpinpower.com/"
+    },
+    {
+      "name": "Tiana Asperjan - Creative Strategy Masterclass",
+      "category": "Creative Strategy",
+      "full": 2997,
+      "cost": 10,
+      "link": "https://www.skool.com/copyfirst/about"
+    },
+    {
+      "name": "Tiana Asperjan - Advanced Ad Copy Secrets",
+      "category": "Copywriting",
+      "full": 497,
+      "cost": 20,
+      "link": "https://copyfirstcreatives.com/products/advanced-ad-copy-secrets"
+    },
+    {
+      "name": "Fraser Cottrell - The Ad Creative Course 2.0",
+      "category": "Creative Strategy",
+      "full": 1499,
+      "cost": 13,
+      "link": "https://www.theadcreativecourse.com/"
+    },
+    {
+      "name": "30MPC - Four Levers Negotiating Course",
+      "category": "Sales & Negotiation",
+      "full": 295,
+      "cost": 10,
+      "link": "https://www.30mpc.com/course/negotiation-course"
+    },
+    {
+      "name": "30MPC - Multithreading & Exec Selling Course",
+      "category": "B2B Sales",
+      "full": 295,
+      "cost": 10,
+      "link": "https://www.30mpc.com/course/multithreading-exec-selling-course-selling-to-the-c-suite"
+    },
+    {
+      "name": "Matthew Volkwyn - Copy Systems - Creative Strategist Edition",
+      "category": "Copywriting & Creative Strategy",
+      "full": 2000,
+      "cost": 35,
+      "link": "https://www.skool.com/copysystems/about"
+    },
+    {
+      "name": "Foundr - Crafting Winning Offers + AI Accelerator Program",
+      "category": "Ecommerce Marketing",
+      "full": null,
+      "cost": 10,
+      "link": "https://foundr.com/pages/crafting-winning-offers"
+    },
+    {
+      "name": "Master AI-First Performance Marketing Systems",
+      "category": "Performance Marketing",
+      "full": 103.8,
+      "cost": 10,
+      "link": "https://socialmasla.com/pm"
+    },
+    {
+      "name": "Gusten Sun - AI Academy",
+      "category": "AI & Automation",
+      "full": 997,
+      "cost": 10,
+      "link": "https://aiacademybundle.com/"
+    },
+    {
+      "name": "Vladimir Blagojevic & Andrei Zinkevich - Full-Funnel B2B Marketing Academy",
+      "category": "B2B Marketing",
+      "full": 997,
+      "cost": 10,
+      "link": "https://fullfunnel.io/academy"
+    },
+    {
+      "name": "Get Design - Copy Any Website Design In One Click",
+      "category": "Web Design",
+      "full": 359,
+      "cost": 20,
+      "link": "https://getdesign.ai/"
+    },
+    {
+      "name": "Nick Theriot - Inner Circle [JAN-JUL 2026]",
+      "category": "Facebook Ads",
+      "full": 1500,
+      "cost": 65,
+      "link": "https://go.theriotsolutions.com/nicks_inner_circle"
+    },
+    {
+      "name": "Daily Mentor Academy - Scale to $1M+ Revenue with Davie Fogarty",
+      "category": "Ecommerce",
+      "full": 8000,
+      "cost": 75,
+      "link": "https://www.skool.com/daily-mentor-academy/about"
+    },
+    {
+      "name": "Marc Lou & Jack Friks - Ship Or Die",
+      "category": "SaaS Marketing",
+      "full": 449,
+      "cost": 10,
+      "link": "https://www.ship-or-die.com/marketing#pricing"
+    },
+    {
+      "name": "LinkedIn Client Lab 2.0 - Sign 2-5+ High-Ticket Clients a Month [July 2026 Update]",
+      "category": "LinkedIn Marketing",
+      "full": 397,
+      "cost": 45,
+      "link": "https://whop.com/linkedin-client-lab/products/linkedin-client-lab/"
+    },
+    {
+      "name": "CreativeLab - AI UGC ADS V2",
+      "category": "AI UGC & Advertising",
+      "full": 98,
+      "cost": 10,
+      "link": "https://whop.com/creativelab-access/ai-ugc-ads-v2/"
+    },
+    {
+      "name": "Tinna Loaiza - The Carousel Studio",
+      "category": "Social Media Marketing",
+      "full": 297,
+      "cost": 10,
+      "link": "https://tcs.tinnaloaiza.com/#pricing"
+    },
+    {
+      "name": "Studio Witzenhausen - The HAUS of AI Course",
+      "category": "AI Image Generation",
+      "full": 902.71,
+      "cost": 10,
+      "link": "https://stan.store/StudioWitzenhausen/p/the-ai-realism-framework"
+    },
+    {
+      "name": "Jason Murray - NEXT Art Director",
+      "category": "Art Direction",
+      "full": 599,
+      "cost": 13,
+      "link": "https://www.modernartdirection.com/next-art-director-1#enrollment"
+    },
+    {
+      "name": "Jordan Platten - 7 Figure AI Operator",
+      "category": "AI Agency",
+      "full": null,
+      "cost": 20,
+      "link": "https://7figuresystems.ai/join-now"
+    },
+    {
+      "name": "Broderick - Make Emails That Don't Suck",
+      "category": "Email Marketing",
+      "full": 900,
+      "cost": 20,
+      "link": "https://drippityemailmarketing.thinkific.com/products/courses/email-marketing-course"
     }
+  ]
+}
   ]
 }
