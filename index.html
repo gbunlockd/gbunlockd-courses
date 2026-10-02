@@ -122,6 +122,13 @@ h1 span{
 .chip[aria-pressed="true"]{
   background:var(--blue); border-color:var(--blue); color:#fff; font-weight:600;
 }
+.chip.more{
+  display:inline-flex; align-items:center; gap:5px;
+  color:var(--blue-hi); border-style:dashed; border-color:#2A3A58;
+}
+.chip.more:hover{border-color:var(--blue); color:var(--blue-hi)}
+.chip.more svg{transition:transform .18s ease}
+.chip.more[aria-expanded="true"] svg{transform:rotate(180deg)}
 select{
   font:inherit; font-size:13px; font-weight:500; color:var(--dim); cursor:pointer;
   background:var(--panel); border:1px solid var(--line);
@@ -274,6 +281,8 @@ footer b{color:var(--dim); font-weight:600}
 
   var all = [];
   var cat = "All";
+  var catsOpen = false;
+  var CHIP_LIMIT = 7;   // including "All" — the rest hide behind the arrow
 
   function money(n) {
     if (!(n > 0)) return "$0";
@@ -423,19 +432,44 @@ footer b{color:var(--dim); font-weight:600}
   }
 
   function render() {
-    var seen = {};
-    all.forEach(function (c) { if (c.category) seen[c.category] = 1; });
-    var names = ["All"].concat(Object.keys(seen).sort());
+    // Busiest categories first, so the few on show are the useful ones.
+    var count = {};
+    all.forEach(function (c) {
+      if (c.category) count[c.category] = (count[c.category] || 0) + 1;
+    });
+    var sorted = Object.keys(count).sort(function (a, b) {
+      return count[b] - count[a] || a.localeCompare(b);
+    });
+    var names = ["All"].concat(sorted);
     if (names.indexOf(cat) === -1) cat = "All";
+
     catsEl.innerHTML = "";
     if (names.length > 1) {
-      names.forEach(function (n) {
+      var showAll = catsOpen || names.length <= CHIP_LIMIT + 1;
+      var shown = showAll ? names : names.slice(0, CHIP_LIMIT);
+      // whatever is selected always stays on screen, even when collapsed
+      if (!showAll && shown.indexOf(cat) === -1) {
+        shown = shown.slice(0, CHIP_LIMIT - 1).concat([cat]);
+      }
+      shown.forEach(function (n) {
         var b = document.createElement("button");
         b.className = "chip"; b.type = "button"; b.textContent = n;
         b.setAttribute("aria-pressed", String(n === cat));
         b.addEventListener("click", function () { cat = n; render(); });
         catsEl.appendChild(b);
       });
+      if (!showAll || (catsOpen && names.length > CHIP_LIMIT + 1)) {
+        var hidden = names.length - shown.length;
+        var t = document.createElement("button");
+        t.className = "chip more"; t.type = "button";
+        t.setAttribute("aria-expanded", String(catsOpen));
+        t.innerHTML = (catsOpen ? "Less" : "+" + hidden + " more")
+          + ' <svg width="12" height="12" viewBox="0 0 24 24" fill="none"'
+          + ' stroke="currentColor" stroke-width="3" aria-hidden="true">'
+          + '<path d="M6 9l6 6 6-6"/></svg>';
+        t.addEventListener("click", function () { catsOpen = !catsOpen; render(); });
+        catsEl.appendChild(t);
+      }
     }
 
     var list = visible();
