@@ -2,25 +2,291 @@
   "updated": "14 October 2026",
   "resell": [
     {
-      "name": "EXAMPLE — delete this one",
-      "category": "Design",
-      "full": 120,
-      "cost": 25,
-      "link": "https://example.com/the-app",
-      "note": "1 year, your own login.\n\nThis row is here to show you the format. Delete it once you have added a real one.\n\nBoth link and note are optional — leave them out and the arrow disappears."
+      "name": "CapCut - 6 Months",
+      "category": "Video Editing",
+      "full": null,
+      "cost": 15,
+      "link": "https://www.capcut.com/",
+      "note": "6 months."
     },
     {
-      "name": "EXAMPLE — no link, no note",
-      "category": "Music",
-      "full": 60,
-      "cost": 12
+      "name": "CapCut - 7 Days",
+      "category": "Video Editing",
+      "full": null,
+      "cost": 1,
+      "link": "https://www.capcut.com/",
+      "note": "7 days."
     },
     {
-      "name": "EXAMPLE — note only",
+      "name": "CapCut - 1 Month",
+      "category": "Video Editing",
+      "full": null,
+      "cost": 2,
+      "link": "https://www.capcut.com/",
+      "note": "1 month."
+    },
+    {
+      "name": "Microsoft 365 Admin - 12 Months",
       "category": "Productivity",
-      "full": 96,
-      "cost": 20,
-      "note": "1 month. Renews at the same price."
+      "full": null,
+      "cost": 16,
+      "link": "https://www.microsoft.com/en-us/microsoft-365/business/microsoft-365-plans-and-pricing",
+      "note": "12 months. Admin access."
+    },
+    {
+      "name": "NordVPN - 3 Months",
+      "category": "VPN & Security",
+      "full": null,
+      "cost": 2,
+      "link": "https://nordvpn.com/pricing/",
+      "note": "3 months. Activation code only; no account included."
+    },
+    {
+      "name": "Cursor - $60 Credits",
+      "category": "AI Coding",
+      "full": 60,
+      "cost": 25,
+      "link": "https://cursor.com/pricing",
+      "note": "$60 in credits."
+    },
+    {
+      "name": "Cursor Pro Plus + Grok Bot - 1 Month",
+      "category": "AI Coding",
+      "full": null,
+      "cost": 25,
+      "link": "https://cursor.com/pricing",
+      "note": "1 month. Includes Grok Bot."
+    },
+    {
+      "name": "Customer.io Essentials",
+      "category": "Email Marketing",
+      "full": null,
+      "cost": 2.5,
+      "link": "https://customer.io/pricing"
+    },
+    {
+      "name": "Descript Creator - 1 Year",
+      "category": "Video Editing",
+      "full": 288,
+      "cost": 15,
+      "link": "https://www.descript.com/pricing",
+      "note": "1 year."
+    },
+    {
+      "name": "Framer Pro - 1 Year",
+      "category": "Web Design",
+      "full": 360,
+      "cost": 6.25,
+      "link": "https://www.framer.com/pricing",
+      "note": "1 year."
+    },
+    {
+      "name": "Gamma Pro - 1 Year",
+      "category": "Presentations",
+      "full": 216,
+      "cost": 18.75,
+      "link": "https://gamma.app/pricing",
+      "note": "1 year."
+    },
+    {
+      "name": "Granola Business - 1 Year",
+      "category": "AI Meeting Notes",
+      "full": 168,
+      "cost": 6.25,
+      "link": "https://www.granola.ai/pricing",
+      "note": "1 year."
+    },
+    {
+      "name": "Intercom Advanced - 1 Year",
+      "category": "Customer Support",
+      "full": 1020,
+      "cost": 6.25,
+      "link": "https://www.intercom.com/pricing",
+      "note": "1 year."
+    },
+    {
+      "name": "Lovable Lite - 1 Year",
+      "category": "AI App Builder",
+      "full": null,
+      "cost": 7,
+      "link": "https://lovable.dev/pricing",
+      "note": "1 year."
+    },
+    {
+      "name": "Lovable Pro - 1 Year",
+      "category": "AI App Builder",
+      "full": 250,
+      "cost": 40,
+      "link": "https://lovable.dev/pricing",
+      "note": "1 year."
+    },
+    {
+      "name": "Magic Patterns Starter - 1 Year",
+      "category": "UI Design",
+      "full": 240,
+      "cost": 6.25,
+      "link": "https://www.magicpatterns.com/pricing",
+      "note": "1 year."
+    },
+    {
+      "name": "Manus Pro - 1 Year",
+      "category": "AI Automation",
+      "full": null,
+      "cost": 27.5,
+      "link": "https://manus.im/pricing",
+      "note": "1 year."
+    },
+    {
+      "name": "Mobbin Team - 1 Year",
+      "category": "Design Resources",
+      "full": 192,
+      "cost": 6.25,
+      "link": "https://mobbin.com/pricing",
+      "note": "1 year."
+    },
+    {
+      "name": "n8n Starter - 1 Year",
+      "category": "Automation",
+      "full": 268.51,
+      "cost": 12.5,
+      "link": "https://n8n.io/pricing/",
+      "note": "1 year."
+    },
+    {
+      "name": "Notion Business - 1 Year",
+      "category": "Productivity",
+      "full": 240,
+      "cost": 10,
+      "link": "https://www.notion.com/pricing",
+      "note": "1 year."
+    },
+    {
+      "name": "Pangram Professional - 1 Year",
+      "category": "AI Detection",
+      "full": 540,
+      "cost": 6.25,
+      "link": "https://www.pangram.com/pricing",
+      "note": "1 year."
+    },
+    {
+      "name": "Railway Pro - 1 Year",
+      "category": "Cloud Hosting",
+      "full": 240,
+      "cost": 10,
+      "link": "https://railway.com/pricing",
+      "note": "1 year."
+    },
+    {
+      "name": "Readwise - 1 Year",
+      "category": "Reading & Research",
+      "full": 119.88,
+      "cost": 2.5,
+      "link": "https://readwise.io/pricing",
+      "note": "1 year."
+    },
+    {
+      "name": "Resend Pro - 1 Year",
+      "category": "Email Infrastructure",
+      "full": 240,
+      "cost": 6.25,
+      "link": "https://resend.com/pricing",
+      "note": "1 year."
+    },
+    {
+      "name": "Runway Pro - 1 Year",
+      "category": "AI Video",
+      "full": 336,
+      "cost": 68.75,
+      "link": "https://runway.com/pricing",
+      "note": "1 year."
+    },
+    {
+      "name": "Supabase Pro - 1 Year",
+      "category": "Database & Backend",
+      "full": 300,
+      "cost": 68.75,
+      "link": "https://supabase.com/pricing",
+      "note": "1 year."
+    },
+    {
+      "name": "Warp Build - 1 Year",
+      "category": "Developer Tools",
+      "full": 216,
+      "cost": 6.25,
+      "link": "https://www.warp.dev/pricing",
+      "note": "1 year."
+    },
+    {
+      "name": "Wispr Flow - 1 Year",
+      "category": "Voice & Dictation",
+      "full": null,
+      "cost": 12.5,
+      "link": "https://wisprflow.ai/pricing",
+      "note": "1 year."
+    },
+    {
+      "name": "LinkedIn Premium Business - 2 Months",
+      "category": "Professional Networking",
+      "full": 139.98,
+      "cost": 0.63,
+      "link": "https://premium.linkedin.com/small-business/business",
+      "note": "2 months. New users only."
+    },
+    {
+      "name": "LinkedIn Premium Career - 2 Months",
+      "category": "Career",
+      "full": 79.98,
+      "cost": 0.63,
+      "link": "https://premium.linkedin.com/careers/career",
+      "note": "2 months. New users only."
+    },
+    {
+      "name": "LinkedIn Premium Career - 12 Months",
+      "category": "Career",
+      "full": 239.88,
+      "cost": 75,
+      "link": "https://premium.linkedin.com/careers/career",
+      "note": "12 months."
+    },
+    {
+      "name": "LinkedIn Premium Career - 3 Months",
+      "category": "Career",
+      "full": 119.97,
+      "cost": 0.63,
+      "link": "https://premium.linkedin.com/careers/career",
+      "note": "3 months. New users only."
+    },
+    {
+      "name": "LinkedIn Sales Navigator Core - 2 Months",
+      "category": "Sales & Lead Generation",
+      "full": 239.98,
+      "cost": 2,
+      "link": "https://business.linkedin.com/sell/sales-navigator/compare-plans",
+      "note": "2 months. New users only."
+    },
+    {
+      "name": "ChatGPT Business Account - 1 Month",
+      "category": "AI Assistants",
+      "full": 25,
+      "cost": 6.25,
+      "link": "https://chatgpt.com/pricing/",
+      "note": "1 month. Business account."
+    },
+    {
+      "name": "ChatGPT Plus - 1 Month",
+      "category": "AI Assistants",
+      "full": 20,
+      "cost": 13.8,
+      "link": "https://chatgpt.com/pricing/",
+      "note": "1 month."
+    },
+    {
+      "name": "ChatGPT Plus - 4 Months",
+      "category": "AI Assistants",
+      "full": 80,
+      "cost": 19.19,
+      "link": "https://chatgpt.com/pricing/",
+      "note": "4 months."
     }
   ]
 }
