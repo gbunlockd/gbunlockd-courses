@@ -6,7 +6,7 @@ One page, two tabs: **📚 Courses** and **💸 Resell**.
 |---|---|
 | `index.html` | The page. You never edit this. |
 | `courses.json` | The courses tab. |
-| `resell.json` | The resell tab — apps and subscriptions. |
+| `resell.json` | The resell tab — subscriptions. |
 | `logo.png` | Your logo. Optional. |
 
 ---
