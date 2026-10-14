@@ -1,0 +1,26 @@
+{
+  "updated": "14 October 2026",
+  "resell": [
+    {
+      "name": "EXAMPLE — delete this one",
+      "category": "Design",
+      "full": 120,
+      "cost": 25,
+      "link": "https://example.com/the-app",
+      "note": "1 year, your own login.\n\nThis row is here to show you the format. Delete it once you have added a real one.\n\nBoth link and note are optional — leave them out and the arrow disappears."
+    },
+    {
+      "name": "EXAMPLE — no link, no note",
+      "category": "Music",
+      "full": 60,
+      "cost": 12
+    },
+    {
+      "name": "EXAMPLE — note only",
+      "category": "Productivity",
+      "full": 96,
+      "cost": 20,
+      "note": "1 month. Renews at the same price."
+    }
+  ]
+}

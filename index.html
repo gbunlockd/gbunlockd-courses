@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>GBUnlockd — Courses</title>
-<meta name="description" content="Every course GBUnlockd already has, with the price you pay.">
+<title>GBUnlockd</title>
+<meta name="description" content="Courses GBUnlockd already has, and apps we get you cheaper. With the price you pay.">
 <meta name="theme-color" content="#05070C">
 <meta name="color-scheme" content="dark">
 <link rel="icon" href="logo.png">
@@ -44,6 +44,24 @@ body{
 }
 img{max-width:100%}
 .wrap{max-width:880px; margin:0 auto; padding-inline:18px}
+
+/* ---------- the two tabs ---------- */
+.tabs{
+  display:inline-flex; gap:4px; margin:0 auto 22px; padding:4px;
+  background:var(--panel); border:1px solid var(--line); border-radius:13px;
+  max-width:100%;
+}
+.tabs button{
+  font:inherit; font-size:14.5px; font-weight:600; letter-spacing:-.012em;
+  color:var(--dim); background:none; border:0; border-radius:10px;
+  padding:9px 22px; cursor:pointer; white-space:nowrap;
+  transition:color .15s, background .15s;
+}
+.tabs button:hover{color:var(--text)}
+.tabs button[aria-selected="true"]{
+  color:#fff; background:linear-gradient(180deg,var(--blue-hi),var(--blue));
+  box-shadow:0 2px 16px var(--glow);
+}
 
 /* ---------- head ---------- */
 header.top{padding-block:40px 6px; text-align:center}
@@ -205,6 +223,7 @@ footer b{color:var(--dim); font-weight:600}
 :focus-visible{outline:2px solid var(--blue-hi); outline-offset:2px; border-radius:6px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 @media (max-width:520px){
+  .tabs button{padding:9px 16px; font-size:14px}
   .head{gap:12px; padding:14px 14px}
   .name{font-size:16px}
   .cost{font-size:23px}
@@ -217,12 +236,18 @@ footer b{color:var(--dim); font-weight:600}
 <div class="wrap">
   <header class="top">
     <img class="logo" src="logo.png" alt="GBUnlockd" onerror="this.remove()">
-    <h1>Every course<br>we <span>already have</span></h1>
-    <p class="lede">Already bought and ready to send.</p>
+
+    <div class="tabs" id="tabs" role="tablist" aria-label="What you are looking at">
+      <button type="button" role="tab" id="tab-courses" aria-selected="true">📚 Courses</button>
+      <button type="button" role="tab" id="tab-resell" aria-selected="false">💸 Resell</button>
+    </div>
+
+    <h1 id="h1">Every course<br>we <span>already have</span></h1>
+    <p class="lede" id="lede">Already bought and ready to send.</p>
 
     <ul class="stats" id="stats"></ul>
 
-    <p class="how">Want something you didn't find here? <b>Open a group buy.</b></p>
+    <p class="how" id="how">Want something you didn't find here? <b>Open a group buy.</b></p>
   </header>
 </div>
 
@@ -264,7 +289,40 @@ footer b{color:var(--dim); font-weight:600}
   var sortEl = document.getElementById("sort");
   var statsEl = document.getElementById("stats");
   var stampEl = document.getElementById("stamp");
+  var h1El = document.getElementById("h1");
+  var ledeEl = document.getElementById("lede");
+  var howEl = document.getElementById("how");
 
+  // The two things on offer. Same page, same machinery, different list.
+  var VIEWS = {
+    courses: {
+      file: "courses.json", key: "courses",
+      title: "GBUnlockd — Courses",
+      h1: 'Every course<br>we <span>already have</span>',
+      lede: "Already bought and ready to send.",
+      how: "Want something you didn't find here? <b>Open a group buy.</b>",
+      search: "Search courses",
+      unit: "Courses",
+      linkText: "See what is in it \u2192",
+      emptyTitle: "Nothing on the list yet",
+      emptyBody: "Courses appear here once they are added."
+    },
+    resell: {
+      file: "resell.json", key: "resell",
+      title: "GBUnlockd — Resell",
+      h1: 'Apps we get you<br><span>cheaper</span>',
+      lede: "Same app, same account, lower price.",
+      how: "Want something you didn't find here? <b>Just ask us.</b>",
+      search: "Search apps",
+      unit: "Apps",
+      linkText: "See the app \u2192",
+      emptyTitle: "Nothing here yet",
+      emptyBody: "Apps appear here once they are added."
+    }
+  };
+
+  var tab = "courses";
+  var pending = {};   // one fetch per file, kept for when they switch back
   var all = [];
   var cat = "All";
 
@@ -302,7 +360,7 @@ footer b{color:var(--dim); font-weight:600}
       cost += (c.cost > 0 ? c.cost : 0);
     });
     var pct = full > 0 && cost < full ? Math.round((1 - cost / full) * 100) : 0;
-    var rows = [[String(all.length), "Courses", false]];
+    var rows = [[String(all.length), VIEWS[tab].unit, false]];
     if (full > 0) rows.push([money(full), "Full price", false]);
     if (cost > 0) rows.push([money(cost), "You would pay", true]);
     if (pct > 0) rows.push([pct + "% off", "The lot", true]);
@@ -403,7 +461,7 @@ footer b{color:var(--dim); font-weight:600}
       if (url) {
         var a = document.createElement("a"); a.className = "link";
         a.href = url; a.target = "_blank"; a.rel = "noopener noreferrer";
-        a.textContent = "See what is in it →"; inner.appendChild(a);
+        a.textContent = VIEWS[tab].linkText; inner.appendChild(a);
       }
       box.appendChild(inner); li.appendChild(box);
       head.addEventListener("click", function () {
@@ -452,41 +510,100 @@ footer b{color:var(--dim); font-weight:600}
   sortEl.addEventListener("change", render);
   catEl.addEventListener("change", function () { cat = catEl.value; render(); });
 
-  showState("Loading…", "One moment.");
-
-  fetch("courses.json", { cache: "no-cache" })
-    .then(function (r) {
-      if (!r.ok) throw new Error("HTTP " + r.status);
-      return r.json();
-    })
-    .then(function (data) {
-      var raw = Array.isArray(data) ? data : (data && data.courses) || [];
-      all = raw.map(function (c) {
+  // --- loading ------------------------------------------------------------
+  // Each file is fetched once and kept, so switching tabs is instant after
+  // the first look. A file that fails only breaks its own tab.
+  function load(which) {
+    if (pending[which]) return pending[which];
+    var view = VIEWS[which];
+    pending[which] = fetch(view.file, { cache: "no-cache" })
+      .then(function (r) {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.json();
+      })
+      .then(function (data) {
+        var raw = Array.isArray(data) ? data : (data && data[view.key]) || [];
         return {
-          name: String(c.name || "").trim(),
-          category: String(c.category || "").trim(),
-          full: Number(c.full) || 0,
-          cost: Number(c.cost) || 0,
-          link: c.link || "",
-          note: c.note || ""
+          items: raw.map(function (c) {
+            return {
+              name: String(c.name || "").trim(),
+              category: String(c.category || "").trim(),
+              full: Number(c.full) || 0,
+              cost: Number(c.cost) || 0,
+              link: c.link || "",
+              note: c.note || ""
+            };
+          }).filter(function (c) { return c.name; }),
+          updated: (data && data.updated) ? String(data.updated) : ""
         };
-      }).filter(function (c) { return c.name; });
+      })
+      .catch(function (err) {
+        console.warn(view.file + " did not load:", err,
+          "\nOpening index.html straight from disk will always fail — it needs a real web address." +
+          "\nOn the live site: check " + view.file + " sits beside index.html and that the JSON is valid.");
+        return { failed: true, items: [], updated: "" };
+      });
+    return pending[which];
+  }
 
-      if (data && data.updated) stampEl.textContent = "Updated " + String(data.updated);
+  function show(which, fromHash) {
+    if (!VIEWS[which]) which = "courses";
+    tab = which;
+    var view = VIEWS[which];
+
+    document.title = view.title;
+    h1El.innerHTML = view.h1;
+    ledeEl.textContent = view.lede;
+    howEl.innerHTML = view.how;
+    qEl.placeholder = view.search;
+    Object.keys(VIEWS).forEach(function (k) {
+      document.getElementById("tab-" + k)
+        .setAttribute("aria-selected", String(k === which));
+    });
+    if (!fromHash && window.history && history.replaceState) {
+      history.replaceState(null, "", "#" + which);
+    }
+
+    // Starting fresh beats carrying a search across two different lists.
+    qEl.value = "";
+    cat = "All";
+    all = [];
+    statsEl.innerHTML = "";
+    stampEl.textContent = "";
+    catEl.hidden = true;
+    showState("Loading…", "One moment.");
+
+    load(which).then(function (data) {
+      if (tab !== which) return;       // they moved on while it was loading
+      all = data.items;
+      stampEl.textContent = data.updated ? "Updated " + data.updated : "";
       stats();
-
+      if (data.failed) {
+        return showState("Back in a moment",
+          "The list is not loading right now. Try again shortly.");
+      }
       if (!all.length) {
-        showState("Nothing on the list yet", "Courses appear here once they are added.");
-        return;
+        return showState(view.emptyTitle, view.emptyBody);
       }
       render();
-    })
-    .catch(function (err) {
-      console.warn("courses.json did not load:", err,
-        "\nOpening index.html straight from disk will always fail — it needs a real web address." +
-        "\nOn the live site: check courses.json sits beside index.html and that the JSON is valid.");
-      showState("Back in a moment", "The list is not loading right now. Try again shortly.");
     });
+  }
+
+  Object.keys(VIEWS).forEach(function (k) {
+    document.getElementById("tab-" + k)
+      .addEventListener("click", function () { if (tab !== k) show(k); });
+  });
+  window.addEventListener("hashchange", function () {
+    var want = (location.hash || "").replace("#", "").toLowerCase();
+    if (VIEWS[want] && want !== tab) show(want, true);
+  });
+
+  // The courses panel links here plain, the resell panel links to #resell.
+  var start = (location.hash || "").replace("#", "").toLowerCase();
+  show(VIEWS[start] ? start : "courses", true);
+
+  // Warm the other list so the first switch is instant.
+  Object.keys(VIEWS).forEach(function (k) { load(k); });
 })();
 </script>
 </body>
